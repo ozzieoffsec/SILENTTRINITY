@@ -21,7 +21,7 @@ class STStager(Stager):
                 'Value'         :   'x64+x86'
 	   },
             'Format' : {
-		'Description'   :   'Select the output type:  raw, hex, int [All output into a .bin file]',
+		'Description'   :   'Select the output type:  raw, hex, int [All Format types output into a .bin file]',
 		'Required'      :   False,
                 'Value'         :   'raw'
 	   }
